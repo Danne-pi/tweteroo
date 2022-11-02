@@ -1,0 +1,16 @@
+{
+  "name": "tweteroo",
+  "version": "1.0.0",
+  "main": "script.js",
+  "type": "module",
+  "scripts": {
+    "start": "node --watch ./server/main.js"
+  },
+  "author": "Danne",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
+  }
+}
