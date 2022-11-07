@@ -1,5 +1,4 @@
-import { InfoSave } from "../writeFile.js"
-
+import { InfoSave } from "../scripts/WriteFile.js";
 
 export const SignUpRoute = (app) => {
     app.post("/sign-up", (req, res) => {

@@ -1,4 +1,4 @@
-import { GetTweets, InfoSave } from "../writeFile.js"
+import { GetTweets, InfoSave } from "../scripts/WriteFile.js"
 
 const route ="/tweets"
 export const TweetRoute = (app) => {

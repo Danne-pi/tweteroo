@@ -1,9 +1,23 @@
-import e from 'express';
 import fs from 'fs';
-const path = './content/';
+
+export function CheckFirsLoad(){
+  let content = []
+  content = JSON.stringify(content)
+  if (!fs.existsSync("./content/users.json")) {
+    fs.writeFile("./content/users.json", content, { flag: 'w+' }, err => {
+      console.error(err);
+    })
+  }
+  if (!fs.existsSync("./content/tweets.json")) {
+    fs.writeFile("./content/tweets.json", content, { flag: 'w+' }, err => {
+      console.error(err);
+    })
+  }
+
+}
 
 export function InfoSave(info, type){
-  let content = fs.readFileSync(path+type+"s.json").toString()
+  let content = fs.readFileSync('./content/'+type+"s.json").toString()
   content = JSON.parse(content)
   content.unshift(info)
   console.log(content)
