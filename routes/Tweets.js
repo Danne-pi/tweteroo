@@ -7,6 +7,12 @@ app.get(route, (req, res) => {
 })
 app.post(route, (req, res)=>{
     const {username, tweet} = req.body
+
+    if (!username || !tweet) {
+        res.status(400).send("Todos os campos são obrigatórios");
+        return
+      }
+
     const content = {
         username,
         tweet
