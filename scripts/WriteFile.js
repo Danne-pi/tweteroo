@@ -1,15 +1,16 @@
 import fs from 'fs';
+const path = './content/'
 
 export function CheckFirsLoad(){
   let content = []
   content = JSON.stringify(content)
-  if (!fs.existsSync("./content/users.json")) {
-    fs.writeFile("./content/users.json", content, { flag: 'w+' }, err => {
+  if (!fs.existsSync(path+"users.json")) {
+    fs.writeFile(path+"users.json", content, { flag: 'w+' }, err => {
       console.error(err);
     })
   }
-  if (!fs.existsSync("./content/tweets.json")) {
-    fs.writeFile("./content/tweets.json", content, { flag: 'w+' }, err => {
+  if (!fs.existsSync(path+"tweets.json")) {
+    fs.writeFile(path+"tweets.json", content, { flag: 'w+' }, err => {
       console.error(err);
     })
   }
@@ -17,10 +18,9 @@ export function CheckFirsLoad(){
 }
 
 export function InfoSave(info, type){
-  let content = fs.readFileSync('./content/'+type+"s.json").toString()
+  let content = fs.readFileSync(path+type+"s.json").toString()
   content = JSON.parse(content)
   content.unshift(info)
-  console.log(content)
   content = JSON.stringify(content)
   fs.writeFile(path+type+'s.json', content, { flag: 'w+' }, err => {
     if (err) {
