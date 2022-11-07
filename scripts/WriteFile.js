@@ -18,7 +18,7 @@ export function CheckFirsLoad(){
 }
 
 export function InfoSave(info, type){
-  let content = fs.readFileSync(path+type+"s.json").toString()
+  let content = fs.readFileSync(path+type+"s.json")
   content = JSON.parse(content)
   content.unshift(info)
   content = JSON.stringify(content)
