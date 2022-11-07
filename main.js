@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
-import { GetTweets, InfoSave } from './writeFile.js'
+import { TweetRoute } from "./routes/Tweets.js";
+import { SignUpRoute } from "./routes/Sign-up.js";
 
 const app = express()
 app.use(cors())
@@ -11,29 +12,8 @@ app.get("/", (req, res) => {
     res.send("olá")
 })
 
-app.post("/sign-up", (req, res) => {
-    const {username, avatar} = req.body
-    const content = {
-        username,
-        avatar
-    }
-    // InfoSave(content, "user")
-    res.status(201).send("Criado com sucesso");
-})
-
-app.get("/tweets", (req, res) => {
-    res.send(GetTweets())
-})
-app.post("/tweets", (req, res)=>{
-    const {username, tweet} = req.body
-    const content = {
-        username,
-        tweet
-    }
-    
-    InfoSave(content, "tweet")
-    res.status(201).send("Criado com sucesso");
-})
+SignUpRoute(app)
+TweetRoute(app)
 
 app.listen(5000, ()=>{
     console.log('Running on http://localhost:5000')
