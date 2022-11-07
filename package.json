@@ -1,7 +1,7 @@
 {
   "name": "tweteroo",
   "version": "1.0.0",
-  "main": "script.js",
+  "main": "main.js",
   "type": "module",
   "scripts": {
     "start": "node --watch ./main.js"
